@@ -1,4 +1,5 @@
 // Unknown te da validaciones de datos aunque puede aceptar inicialmente cualquiera
+// o nunca para o puede detener tu aplicación al tirar un error
 
 let anyVar: any;
 anyVar = true;
