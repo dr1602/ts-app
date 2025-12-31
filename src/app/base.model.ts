@@ -1,4 +1,5 @@
-export type idType = string | number;
+// export type idType = string | number;
+export type idType = number;
 
 export interface BaseModel {
   readonly id: idType;
