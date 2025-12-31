@@ -41,6 +41,9 @@ export const updateProduct = (
 
 export const findProducts = (dto: FindProductDto): Product[] => {
   // dto.color = 'blue';
+  // dto.tags = []; // no permite reasignar pero... si no pongo readonly antes de ReadonlyArray<string>;, si me permite este metodo
+  // dto.tags?.pop(); // permite métodos como push y pop
+  // dto.tags?.push();
   return products;
 };
 
