@@ -3,5 +3,5 @@ export type idType = string | number;
 export interface BaseModel {
   readonly id: idType;
   readonly createdAt: Date;
-  updateddAt: Date;
+  updatedAt: Date;
 }

@@ -1,11 +1,23 @@
 import { Product } from './product.model.js';
+import { CreateProductDto } from './product.dto.js';
 
 export const products: Product[] = [];
 
-export const addProduct = (data: Product) => {
-  // data.id = '392552';
-  // data.createdAt = new Date(1998, 1, 1);
-  products.push(data);
+export const addProduct = (data: CreateProductDto): Product => {
+  const newProduct = {
+    ...data,
+    id: 'afsafdad',
+    createdAt: new Date(2025, 12, 30),
+    updatedAt: new Date(2025, 12, 30),
+    category: {
+      id: data.categoryId,
+      name: 'Nombre',
+      createdAt: new Date(2025, 12, 30),
+      updatedAt: new Date(2025, 12, 30),
+    },
+  };
+  products.push(newProduct);
+  return newProduct;
 };
 
 export const updateProduct = (
