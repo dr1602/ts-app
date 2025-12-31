@@ -17,17 +17,17 @@ for (let index = 0; index < 12; index++) {
     tags: ['', ''],
     title: String(fa.commerce?.product_name),
     stock: Number(fa.phone_number),
-    categoryId: '13123',
+    categoryId: 13123,
   });
 }
 
 console.log(products);
 const firstProduct = products[0];
 
-updateProduct(String(firstProduct?.id), {
+updateProduct(Number(firstProduct?.id), {
   title: 'New title',
   stock: 80,
-  categoryId: 'asdas',
+  categoryId: 2134123,
 });
 
 findProducts({

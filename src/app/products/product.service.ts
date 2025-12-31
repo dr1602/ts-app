@@ -10,7 +10,7 @@ export const products: Product[] = [];
 export const addProduct = (data: CreateProductDto): Product => {
   const newProduct = {
     ...data,
-    id: 'afsafdad',
+    id: 1241543,
     createdAt: new Date(2025, 12, 30),
     updatedAt: new Date(2025, 12, 30),
     category: {
@@ -25,7 +25,7 @@ export const addProduct = (data: CreateProductDto): Product => {
 };
 
 export const updateProduct = (
-  id: string,
+  id: Product['id'],
   changes: UpdateProductDto
 ): Product => {
   const index = products.findIndex((item) => item.id === id);
@@ -69,14 +69,14 @@ export const findProducts = (dto: FindProductDto): Product[] => {
 //   return updatedProduct;
 // };
 
-export const deleteProduct = (id: string) => {
+export const deleteProduct = (id: Product['id']) => {
   const index = products.findIndex((item) => item.id === id);
   if (index !== -1) {
     products.splice(index, 1);
   }
 };
 
-export const getProduct = (id: string): Product | undefined => {
+export const getProduct = (id: Product['id']): Product | undefined => {
   return products.find((item) => item.id === id);
 };
 
