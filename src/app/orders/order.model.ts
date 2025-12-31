@@ -1,9 +1,8 @@
 import { Product } from '../products/product.model.js';
 import { User } from '../users/user.model.js';
+import { BaseModel } from '../base.model.js';
 
-interface Order {
-  id: string | number;
-  createdAt: Date;
+export interface Order extends BaseModel {
   products: Product;
   user: User;
 }
