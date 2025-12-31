@@ -1,5 +1,9 @@
 import { Product } from './product.model.js';
-import { CreateProductDto, UpdateProductDto } from './product.dto.js';
+import {
+  CreateProductDto,
+  UpdateProductDto,
+  FindProductDto,
+} from './product.dto.js';
 
 export const products: Product[] = [];
 
@@ -33,6 +37,11 @@ export const updateProduct = (
   } as Product;
 
   return products[index];
+};
+
+export const findProducts = (dto: FindProductDto): Product[] => {
+  // dto.color = 'blue';
+  return products;
 };
 
 // export const updateProduct = (
@@ -71,10 +80,10 @@ export const getProduct = (id: string): Product | undefined => {
   return products.find((item) => item.id === id);
 };
 
-export const findProducts = (query: Partial<Product>): Product[] => {
-  return products.filter((item) => {
-    return Object.entries(query).every(([key, value]) => {
-      return item[key as keyof Product] === value;
-    });
-  });
-};
+// export const findProducts = (query: Partial<Product>): Product[] => {
+//   return products.filter((item) => {
+//     return Object.entries(query).every(([key, value]) => {
+//       return item[key as keyof Product] === value;
+//     });
+//   });
+// };
