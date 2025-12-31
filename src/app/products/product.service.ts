@@ -1,5 +1,5 @@
 import { Product } from './product.model.js';
-import { CreateProductDto } from './product.dto.js';
+import { CreateProductDto, UpdateProductDto } from './product.dto.js';
 
 export const products: Product[] = [];
 
@@ -22,28 +22,43 @@ export const addProduct = (data: CreateProductDto): Product => {
 
 export const updateProduct = (
   id: string,
-  changes: Partial<Product>
+  changes: UpdateProductDto
 ): Product => {
   const index = products.findIndex((item) => item.id === id);
-
-  // 1. Validamos que el producto exista para evitar errores de "undefined"
-  if (index === -1) {
-    throw new Error('Product not found');
-  }
-
   const prevData = products[index];
 
-  // 2. Creamos el nuevo objeto fusionando los anteriores
-  // Usamos "as Product" para confirmarle a TS que el resultado final es válido
-  const updatedProduct = {
+  products[index] = {
     ...prevData,
     ...changes,
   } as Product;
 
-  products[index] = updatedProduct;
-
-  return updatedProduct;
+  return products[index];
 };
+
+// export const updateProduct = (
+//   id: string,
+//   changes: Partial<Product>
+// ): Product => {
+//   const index = products.findIndex((item) => item.id === id);
+
+//   // 1. Validamos que el producto exista para evitar errores de "undefined"
+//   if (index === -1) {
+//     throw new Error('Product not found');
+//   }
+
+//   const prevData = products[index];
+
+//   // 2. Creamos el nuevo objeto fusionando los anteriores
+//   // Usamos "as Product" para confirmarle a TS que el resultado final es válido
+//   const updatedProduct = {
+//     ...prevData,
+//     ...changes,
+//   } as Product;
+
+//   products[index] = updatedProduct;
+
+//   return updatedProduct;
+// };
 
 export const deleteProduct = (id: string) => {
   const index = products.findIndex((item) => item.id === id);
