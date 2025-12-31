@@ -1,13 +1,12 @@
 import { Category } from '../categories/category.model.js';
+import { BaseModel } from '../base.model.js';
 
 export type Sizes = 'S' | 'M' | 'L' | 'XL';
-export type idType = string | number;
 
-export interface Product {
-  id: idType;
+// Interface sí se extiende, un type no
+export interface Product extends BaseModel {
   title: string;
-  createdAt: Date;
   stock: number;
-  size?: Sizes;
   category: Category;
+  size?: Sizes;
 }
