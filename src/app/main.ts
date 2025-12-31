@@ -2,6 +2,7 @@ import { fa } from '@faker-js/faker';
 
 import {
   addProduct,
+  findProducts,
   products,
   updateProduct,
 } from './products/product.service.js';
@@ -27,4 +28,11 @@ updateProduct(String(firstProduct?.id), {
   title: 'New title',
   stock: 80,
   categoryId: 'asdas',
+});
+
+findProducts({
+  stock: 10,
+  color: 'red',
+  createdAt: new Date(),
+  isNew: true,
 });
